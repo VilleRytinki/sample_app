@@ -1,24 +1,10 @@
-# README
+# Ruby on Rails tutorial sample application
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is the sample application for Ruby on Rails tutorial 7th edition.
+This project showcases my ability to develop and test web apps.
 
-Things you may want to cover:
+# Features
+This section gets updated as the project matures.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# Technologies used
+This project uses Rails, Postgresql, Javascript, HTML and CSS in order to build a full-blown database backed web-app.
