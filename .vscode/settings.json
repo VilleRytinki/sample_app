@@ -1,0 +1,15 @@
+{
+  // Enable Ruby LSP
+  "ruby.useLanguageServer": true,
+  "ruby.lsp.enabled": true,
+  "ruby.languageServer.path": "/home/ville/.local/share/mise/installs/ruby/3.4.7/bin/ruby-lsp",
+
+  // Format using RuboCop
+  "ruby.format": "rubocop",
+  "ruby.rubocop.executePath": "/home/ville/.local/share/mise/installs/ruby/3.4.7/bin",
+
+  // Enable RuboCop linting
+  "ruby.lint": {
+    "rubocop": true
+  }
+}
