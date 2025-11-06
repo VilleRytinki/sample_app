@@ -21,9 +21,29 @@
     <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+
+    <!--[if lt IE9]>
+      <script src="//cdnjs.cloudfare.com/ajax/libs/html5shiv/r29/html5.min.js">
+      </script>
+    <![endif]-->
   </head>
 
   <body>
-    <%= yield %>
+    <header class="navbar navbar-fixed-top navbar-inverse">
+      <div class="container">
+        <%= link_to "sample app", '#', id: "logo" %>
+        <nav>
+          <ul class="nav navbar-nav navbar-right">
+            <li data-testid="nav-link-home"><%= link_to "Home",  '#' %></li>
+            <li data-testid="nav-link-help"><%= link_to "Help",  '#' %></li>
+            <li data-testid="nav-link-log-in"><%= link_to "Log In",  '#' %></li>
+          </ul>
+        </nav>
+      </div>
+
+    </header>
+      <div class="container">
+        <%= yield %>
+      </div>
   </body>
 </html>
