@@ -8,6 +8,7 @@ npm install -g yarn
 
 bundle install
 
+yarn add bootstrap @popperjs/core
 yarn install --frozen-lockfile
 yarn build:css
 
