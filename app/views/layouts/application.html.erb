@@ -28,22 +28,23 @@
     <![endif]-->
   </head>
 
-  <body>
-    <header class="navbar navbar-fixed-top navbar-inverse">
-      <div class="container">
-        <%= link_to "sample app", '#', id: "logo" %>
-        <nav>
-          <ul class="nav navbar-nav navbar-right">
-            <li data-testid="nav-link-home"><%= link_to "Home",  '#' %></li>
-            <li data-testid="nav-link-help"><%= link_to "Help",  '#' %></li>
-            <li data-testid="nav-link-log-in"><%= link_to "Log In",  '#' %></li>
-          </ul>
-        </nav>
-      </div>
+<body>
+  <header class="navbar navbar-expand p-3">
+    <div class="container d-flex align-items-center">
+      <%= link_to "sample app", '#', id: "logo", class: "navbar-brand" %>
 
-    </header>
-      <div class="container">
-        <%= yield %>
-      </div>
-  </body>
+      <nav class="ms-auto">
+        <ul class="nav">
+          <li data-testid="nav-link-home" class="nav-item"><%= link_to "Home", '#', class: "nav-link" %></li>
+          <li data-testid="nav-link-help" class="nav-item"><%= link_to "Help", '#', class: "nav-link" %></li>
+          <li data-testid="nav-link-log-in" class="nav-item"><%= link_to "Log In", '#', class: "nav-link" %></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
+    <%= yield %>
+  </div>
+</body>
 </html>
