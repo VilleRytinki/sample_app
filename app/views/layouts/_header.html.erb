@@ -1,11 +1,11 @@
 <header class="navbar navbar-expand fixed-top p-3 navbar-dark bg-primary">
     <div class="container d-flex align-items-center">
-      <%= link_to "sample app", '#', id: "logo", class: "navbar-brand" %>
+      <%= link_to "sample app", root_path, id: "logo", class: "navbar-brand" %>
 
       <nav class="ms-auto">
         <ul class="nav">
-          <li data-testid="nav-link-home" class="nav-item"><%= link_to "Home", '#', class: "nav-link" %></li>
-          <li data-testid="nav-link-help" class="nav-item"><%= link_to "Help", '#', class: "nav-link" %></li>
+          <li data-testid="nav-link-home" class="nav-item"><%= link_to "Home", root_path, class: "nav-link" %></li>
+          <li data-testid="nav-link-help" class="nav-item"><%= link_to "Help", help_path, class: "nav-link" %></li>
           <li data-testid="nav-link-log-in" class="nav-item"><%= link_to "Log In", '#', class: "nav-link" %></li>
         </ul>
       </nav>
