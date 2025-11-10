@@ -24,4 +24,8 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
   test "layout file has link to contact page" do
     assert_select "a[href=?]", contact_path
   end
+
+  test "layout file has link to signup page" do
+    assert_select "a[href=?]", signup_path
+  end
 end
