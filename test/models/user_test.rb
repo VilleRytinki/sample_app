@@ -5,7 +5,12 @@ class UserTest < ActiveSupport::TestCase
   #   assert true
   # end
   def setup
-    @user = User.new(name: "Example User", email: "user1@example.com")
+    @user = User.new(name: "Example User", email: "user1@example.com", password: "fuubar",
+                    password_confirmation: "fuubar")
+
+    unless @user.valid?
+      flunk("Setup failed: @user should be valid before tests run. Errors: #{@user.errors.full_messages}")
+    end
   end
 
   test "test user should be valid" do
@@ -61,5 +66,10 @@ class UserTest < ActiveSupport::TestCase
     @user.email = mixed_email_case
     @user.save
     assert_equal mixed_email_case.downcase, @user.reload.email
+  end
+
+  test "user without password is invalid" do
+    user_without_password = User.new(name: "test_user2", email: "test@email.com")
+    assert_not user_without_password.valid?
   end
 end
