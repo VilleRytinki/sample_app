@@ -1,2 +1,17 @@
-<h1>Sessions#new</h1>
-<p>Find me in app/views/sessions/new.html.erb</p>
+<% provide( :title, "Log In" ) %>
+<h1>Log In</h1>
+
+<div class="row">
+    <div class="row justify-content-center">
+        <%= form_with(url: login_path, scope: :session) do |f| %>
+            <%= f.label :email %>
+            <%= f.label :email, class="form-control" %>
+
+            <%= f.label :password %>
+            <%= f.label :password, class="form.control" %>
+
+            <%= f.submit "Log In", class: "btn btn-primary" %>
+        <% end %>
+        <p>New user? <%= link_to "Sign Up Now!", signup_path %></p>
+    </div>
+</div>
