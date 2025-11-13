@@ -43,6 +43,13 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
   assert_equal before + 1, after, message
   assert_redirected_to user_path(User.last)
   follow_redirect!
-  assert_select "div.alert-success"
+  # The flash should appear once
+  assert_select "div.alert-success", text: "Welcome to the Sample App!"
+
+  # Simulate refreshing the page (a second GET request to the same URL)
+  get user_path(User.last)
+
+  # The flash should now be gone
+  assert_select "div.alert-success", false, "Flash should not persist after refresh"
 end
 end
