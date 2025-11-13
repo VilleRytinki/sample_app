@@ -42,5 +42,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
 
   assert_equal before + 1, after, message
   assert_redirected_to user_path(User.last)
+  follow_redirect!
+  assert_select "div.alert-success"
 end
 end
