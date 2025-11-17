@@ -27,6 +27,8 @@
 
 <body>
   <%= render 'layouts/header' %>
+  <%= logged_in? ? "Logged in" : "Logged out" %>
+
 
   <div class="container">
     <% flash.each do |message_type, message| %>

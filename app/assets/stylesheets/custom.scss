@@ -174,8 +174,14 @@ input {
     }
 }
 
-/* Dropdown menu */
-
-.dropdown-menu.active {
-    display: block;
+/* Dropdown */
+.dropdown-menu {
+  background-color: #fff;
+  color: #000;   
+    .dropdown-item {
+        color: #000;
+    }  
+        :hover {
+          background-color: #f8f9fa;  
+        }
 }

@@ -12,11 +12,11 @@
               </li>
 
               <li class="nav-item dropdown">
-                <a href="#" id="account" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                  Account <b class="caret"></b>
+                <a href="#" id="account" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                  Account
                 </a>
 
-                <ul class="dropdown-menu dropdown-menu-end">
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="account">
                   <li><%= link_to "Profile", current_user, class: "dropdown-item" %></li>
                   <li><%= link_to "Settings", "#", class: "dropdown-item" %></li>
                   <li><hr class="dropdown-divider"></li>
