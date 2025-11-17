@@ -6,7 +6,30 @@
         <ul class="nav">
           <li data-testid="nav-link-home" class="nav-item"><%= link_to "Home", root_path, class: "nav-link" %></li>
           <li data-testid="nav-link-help" class="nav-item"><%= link_to "Help", help_path, class: "nav-link" %></li>
-          <li data-testid="nav-link-log-in" class="nav-item"><%= link_to "Log In", '#', class: "nav-link" %></li>
+            <% if logged_in? %>
+              <li class="nav-item">
+              <%= link_to "Users", users_path, class: "nav-link" %>
+              </li>
+
+              <li class="nav-item dropdown">
+                <a href="#" id="account" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                  Account <b class="caret"></b>
+                </a>
+
+                <ul class="dropdown-menu dropdown-menu-end">
+                  <li><%= link_to "Profile", current_user, class: "dropdown-item" %></li>
+                  <li><%= link_to "Settings", "#", class: "dropdown-item" %></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li>
+                    <%= link_to "Log Out", logout_path, data: { "turbo-method": :delete }, class: "dropdown-item" %>
+                  </li>
+                </ul>
+              </li>
+            <% else %>
+              <li data-testid="nav-link-log-in" class="nav-item">
+                <%= link_to "Log In", login_path, class: "nav-link" %>
+              </li>
+            <% end %>
         </ul>
       </nav>
     </div>
