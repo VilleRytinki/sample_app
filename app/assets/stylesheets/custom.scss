@@ -173,3 +173,9 @@ input {
         color: $danger;
     }
 }
+
+/* Dropdown menu */
+
+.dropdown-menu.active {
+    display: block;
+}
