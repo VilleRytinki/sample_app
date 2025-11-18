@@ -19,6 +19,7 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     get login_path
     assert_template "sessions/new", "Expected correct template to be rendered, but was not"
     post login_path, params: { session: { email: @user.email, password: "invalid" } }
+    assert_not is_logged_in?
     assert_response :unprocessable_entity
     assert_template "sessions/new", "Expected correct template to be rendered, but was not"
     assert_not flash.empty?, "Expected flash to show error message, but there was none."
@@ -37,16 +38,25 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     assert flash.empty?, "Expected flash message to not be visible after navigating away from login, but was not."
   end
 
-  test "login with valid information" do
+  test "login with valid information followed by logout" do
     user = users(:testuser1)
     get login_path
     assert_template "sessions/new", "Expected correct template to be rendered, but was not"
     post login_path, params: { session: { email: @user.email, password: FIXTURE_PASSWORD } }
+    assert is_logged_in?
     assert_redirected_to user
     follow_redirect!
     assert_template "users/show"
     assert_select "a[href=?]", login_path, count: 0
     assert_select "a[href=?]", logout_path
     assert_select "a[href=?]", user_path(user)
+    delete logout_path
+    assert_not is_logged_in?
+    assert_response :see_other
+    assert_redirected_to root_url
+    follow_redirect!
+    assert_select "a[href=?]", login_path
+    assert_select "a[href=?]", logout_path, count: 0
+    assert_select "a[href=?]", user_path(user), count: 0
   end
 end
