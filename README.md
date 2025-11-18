@@ -28,7 +28,9 @@ Responsive design in the book was done with JS. I chose to use Bootstrap all the
 This section gets updated as the project matures.
 Bootstrap for Front-End.
 Single page application with home, help, contact and about page.
-- Fully functional login and authentication system with users having the ability to login and logout of the app via user session control.
+- Fully functional login and authentication system with users having the ability to login and logout of the app via user session control. User login state is preserved for the duration of the browser session.
+- Implements session hijacking prevention techniques via reset session when redirecting or when user logs in.
+- Error handling for invalid signup/login with error messages via flash.
 - Responsive design using Bootstrap. Targeted for header navigation links on smaller screens.
 
 # Technologies used
