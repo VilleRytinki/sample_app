@@ -22,11 +22,14 @@ I also faced challenges in setting development environment as the book uses Web 
 so I decided to use VSCode. The problems mainly were about Ruby Language server and getting rubocop(linter) to work.
 Development is done on WSL.
 
+Responsive design in the book was done with JS. I chose to use Bootstrap all the way, so I had to find the corresponding behavior in Bootstrap documentation.
 
 # Features
 This section gets updated as the project matures.
 Bootstrap for Front-End.
 Single page application with home, help, contact and about page.
+- Fully functional login and authentication system with users having the ability to login and logout of the app via user session control.
+- Responsive design using Bootstrap. Targeted for header navigation links on smaller screens.
 
 # Technologies used
 This project uses Rails, Postgresql, Javascript, HTML and CSS in order to build a full-blown database backed web-app.
