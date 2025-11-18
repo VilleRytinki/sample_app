@@ -14,5 +14,11 @@ module ActiveSupport
 
     # Add more helper methods to be used by all tests here...
     include ApplicationHelper
+
+    FIXTURE_PASSWORD = "testuser123"
+
+    def is_logged_in?
+      !session[:user_id].nil?
+    end
   end
 end

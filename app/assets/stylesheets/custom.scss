@@ -104,6 +104,24 @@ footer {
     margin-top: 45px;
 }
 
+@media (max-width: 800px) {
+    footer {
+        small {
+            display: block;
+            float: none;
+            margin-bottom: 1em;
+        }
+        ul {
+            float: none;
+            padding: 0;
+            li {
+                float: none;
+                margin-left: 0;
+            }
+        }
+    }
+}
+
 /* sidebar */
 aside {
     section.user.info {
@@ -172,4 +190,16 @@ input {
     .form-control {
         color: $danger;
     }
+}
+
+/* Dropdown */
+.dropdown-menu {
+  background-color: #fff;
+  color: #000;   
+    .dropdown-item {
+        color: #000;
+    }  
+        :hover {
+          background-color: #f8f9fa;  
+        }
 }

@@ -51,5 +51,6 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
 
   # The flash should now be gone
   assert_select "div.alert-success", false, "Flash should not persist after refresh"
+  assert is_logged_in?, "Expected user to be logged in after signup, but was not."
 end
 end
