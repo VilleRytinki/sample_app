@@ -192,6 +192,34 @@ input {
     }
 }
 
+.form-check-inline {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* space between checkbox and label */
+  padding-left: 0; /* no left padding */
+  margin-left: 0;  /* no left margin */
+}
+
+.form-check-input {
+    margin-top: 2px;
+    margin-bottom: 10px;
+    span {
+        margin-left: 20px;
+        font-weight: normal;
+    }
+}
+
+#session_remember_me {
+  width: 16px;  /* typical checkbox size */
+  height: 16px;
+  margin-left: 0;   
+
+  appearance: checkbox;
+  -webkit-appearance: checkbox;
+  -moz-appearance: checkbox;
+}
+
+
 /* Dropdown */
 .dropdown-menu {
   background-color: #fff;
