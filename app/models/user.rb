@@ -18,9 +18,14 @@ class User < ApplicationRecord
     SecureRandom.urlsafe_base64
   end
 
+  def session_token
+    remember_digest || remember
+  end
+
   def remember
     self.remember_token = User.new_token
     update_attribute(:remember_digest, User.digest(remember_token))
+    remember_digest
   end
 
   def authenticated?(remember_token)
