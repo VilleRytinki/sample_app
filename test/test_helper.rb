@@ -22,3 +22,13 @@ module ActiveSupport
     end
   end
 end
+
+class ActionDispatch::IntegrationTest
+  def log_in_with(user_email: "", password: "", remember_me: "1")
+    post login_path, params: { session: {
+      email: user_email,
+      password: password,
+      remember_me: remember_me
+    } }
+  end
+end
