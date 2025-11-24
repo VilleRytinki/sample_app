@@ -21,4 +21,23 @@ class UsersEditTest < ActionDispatch::IntegrationTest
     assert_template "users/edit"
     assert_select "li.error-message"
   end
+
+  test "successful edit loads the user profile page and updates user information in db" do
+    new_name = "UpdatedName"
+    new_email = "mynewemail@myemailservice.com"
+    patch user_path(@user), params: {
+      user: {
+        name: new_name,
+        email: new_email,
+        password: "",
+        password_confirmation: ""
+      }
+    }
+    user = assigns(:user)
+    assert_not flash.empty?, "Expected flash message to not be empty. #{user.errors.full_messages}"
+    assert_redirected_to @user, "Expected to be redirected to user profile page. #{user.errors.full_messages}"
+    @user.reload
+    assert_equal new_name, @user.name
+    assert_equal new_email, @user.email
+  end
 end
