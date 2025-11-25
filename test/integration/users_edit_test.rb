@@ -3,10 +3,10 @@ require "test_helper"
 class UsersEditTest < ActionDispatch::IntegrationTest
   def setup
     @user = users(:testuser1)
-    log_in_with(user_email: @user.email, password: FIXTURE_PASSWORD, remember_me: "0")
   end
 
   test "unsuccessful edit renders the edit page with error messages" do
+    log_in_with(user_email: @user.email, password: FIXTURE_PASSWORD, remember_me: "0")
     get edit_user_path(@user)
     assert_template "users/edit"
 
@@ -24,6 +24,7 @@ class UsersEditTest < ActionDispatch::IntegrationTest
   end
 
   test "successful edit loads the user profile page and updates user information in db" do
+    log_in_with(user_email: @user.email, password: FIXTURE_PASSWORD, remember_me: "0")
     new_name = "UpdatedName"
     new_email = "mynewemail@myemailservice.com"
     patch user_path(@user), params: {
@@ -40,5 +41,13 @@ class UsersEditTest < ActionDispatch::IntegrationTest
     @user.reload
     assert_equal new_name, @user.name
     assert_equal new_email, @user.email
+  end
+
+  test "friendly forwarding" do
+    get edit_user_path(@user)
+    assert_redirected_to login_path
+
+    log_in_with(user_email: @user.email, password: FIXTURE_PASSWORD, remember_me: "0")
+    assert_redirected_to edit_user_path(@user)
   end
 end
