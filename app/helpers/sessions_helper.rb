@@ -43,7 +43,6 @@ module SessionsHelper
   end
 
   def store_location
-    # brakeman:ignore VerbConfusion
-    session[:forwarding_url] = request.original_url if request.get?
+    session[:forwarding_url] = request.original_url if request.get? # brakeman:ignore[VerbConfusion]
   end
 end
