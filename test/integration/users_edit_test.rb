@@ -3,6 +3,7 @@ require "test_helper"
 class UsersEditTest < ActionDispatch::IntegrationTest
   def setup
     @user = users(:testuser1)
+    log_in_with(user_email: @user.email, password: FIXTURE_PASSWORD, remember_me: "0")
   end
 
   test "unsuccessful edit renders the edit page with error messages" do
