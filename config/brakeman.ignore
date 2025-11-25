@@ -1,0 +1,7 @@
+[
+  {
+    "fingerprint": "4fa287df1783e275e81f67e78fc4f3540eb7b4491559b2176b6a68eb3befd2a5",
+    "note": "HEAD requests intentionally excluded from store_location",
+    "ignore": true
+  }
+]
