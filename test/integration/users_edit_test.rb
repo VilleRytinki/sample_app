@@ -49,5 +49,6 @@ class UsersEditTest < ActionDispatch::IntegrationTest
 
     log_in_with(user_email: @user.email, password: FIXTURE_PASSWORD, remember_me: "0")
     assert_redirected_to edit_user_path(@user)
+    assert session[:forwarding_url].nil?, "forwarding url should be nil after successful forwarding."
   end
 end
