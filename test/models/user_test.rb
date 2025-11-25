@@ -73,6 +73,11 @@ class UserTest < ActiveSupport::TestCase
     assert_not user_without_password.valid?
   end
 
+  test "user with a nil password is invalid" do
+    user_without_password = User.new(name: "test_user2", email: "test@email.com", password: "", password_confirmation: "")
+    assert_not user_without_password.valid?
+  end
+
   test "password should be nonblank" do
     @user.password = @user.password_confirmation = " " * 10
     assert_not @user.valid?
