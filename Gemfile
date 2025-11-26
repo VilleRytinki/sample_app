@@ -29,6 +29,8 @@ gem "ruby-lsp-rails"
 gem "bcrypt"
 gem "faker"
 gem "cssbundling-rails"
+gem "will_paginate"
+gem "bootstrap-will_paginate"
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"
