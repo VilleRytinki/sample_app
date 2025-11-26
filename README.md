@@ -17,6 +17,8 @@ However I chose to use:
 - How to use postgresql with Rails 8.
 - Using Github as CI platform.
 - Using Render as my production pipeline.
+- The book suggest using will_paginate to paginate users index. However this is not actively supported anymore so
+    I decided to use kaminari gem along with bootstrap5-views for pagination styling.
 
 I also faced challenges in setting development environment as the book uses Web based text editor that is not available anymore,
 so I decided to use VSCode. The problems mainly were about Ruby Language server and getting rubocop(linter) to work.
