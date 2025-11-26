@@ -27,7 +27,7 @@ gem "rubocop-thread_safety"
 gem "ruby-lsp"
 gem "ruby-lsp-rails"
 gem "bcrypt"
-
+gem "faker"
 gem "cssbundling-rails"
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
@@ -65,8 +65,6 @@ group :development, :test do
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
-
-  gem "faker"
 end
 
 group :development do
