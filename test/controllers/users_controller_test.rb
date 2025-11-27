@@ -82,7 +82,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
       delete user_path(@user2)
     end
     assert_not flash.empty?
-    assert_response :found
+    assert_response :see_other
     assert_redirected_to users_path
   end
 end
