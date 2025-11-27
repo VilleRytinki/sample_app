@@ -48,7 +48,7 @@ Features:
 - Responsive design using Bootstrap ex. header navigation links on smaller screens.
 - Implements "Remember me" - functionality via cookies to enable persistent sessions across pages. By default the login state is preserved for the duration of the browser session.
 - User can now modify own information. Users are restricted from modifying other users and are required to log in.
-  
+- Lists registered users with pagination.  
 # Technologies used
 This project uses Rails, Postgresql, Javascript, HTML and CSS in order to build a full-blown database backed web-app.
 
