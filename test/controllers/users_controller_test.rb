@@ -47,4 +47,15 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert flash.empty?
     assert_redirected_to root_url
   end
+
+  test "should redirect index when not logged in" do
+    get users_path
+    assert_redirected_to login_url
+  end
+
+  test "should render index when logged in for users" do
+    log_in_with(user_email: @user.email, password: FIXTURE_PASSWORD)
+    get users_path
+    assert_template "users/index"
+  end
 end

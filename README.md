@@ -17,6 +17,8 @@ However I chose to use:
 - How to use postgresql with Rails 8.
 - Using Github as CI platform.
 - Using Render as my production pipeline.
+- The book suggest using will_paginate to paginate users index. However this is not actively supported anymore so
+    I decided to use kaminari gem along with bootstrap5-views for pagination styling.
 
 I also faced challenges in setting development environment as the book uses Web based text editor that is not available anymore,
 so I decided to use VSCode. The problems mainly were about Ruby Language server and getting rubocop(linter) to work.
@@ -45,6 +47,7 @@ Features:
 - Error handling for invalid signup/login with error messages via flash.
 - Responsive design using Bootstrap ex. header navigation links on smaller screens.
 - Implements "Remember me" - functionality via cookies to enable persistent sessions across pages. By default the login state is preserved for the duration of the browser session.
+- User can now modify own information. Users are restricted from modifying other users and are required to log in.
   
 # Technologies used
 This project uses Rails, Postgresql, Javascript, HTML and CSS in order to build a full-blown database backed web-app.
