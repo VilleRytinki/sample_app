@@ -58,4 +58,31 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     get users_path
     assert_template "users/index"
   end
+
+  test "should redirect destroy to log in when not logged in" do
+    assert_no_difference "User.count" do
+      delete user_path(@user2)
+    end
+    assert_response :see_other
+    assert_redirected_to login_path
+  end
+
+  test "should redirect to root unless user admin" do
+    log_in_with(user_email: @user2.email, password: FIXTURE_PASSWORD)
+    assert_no_difference "User.count" do
+      delete user_path(@user)
+    end
+    assert_response :see_other
+    assert_redirected_to root_url
+  end
+
+  test "should destroy a user when logged in as admin and redirect to users index" do
+    log_in_with(user_email: @user.email, password: FIXTURE_PASSWORD)
+    assert_difference "User.count", -1 do
+      delete user_path(@user2)
+    end
+    assert_not flash.empty?
+    assert_response :see_other
+    assert_redirected_to users_path
+  end
 end

@@ -2,7 +2,7 @@ require "test_helper"
 
 class UsersEditTest < ActionDispatch::IntegrationTest
   def setup
-    @user = users(:testuser1)
+    @user = users(:testuser2)
   end
 
   test "unsuccessful edit renders the edit page with error messages" do
@@ -50,5 +50,22 @@ class UsersEditTest < ActionDispatch::IntegrationTest
     log_in_with(user_email: @user.email, password: FIXTURE_PASSWORD, remember_me: "0")
     assert_redirected_to edit_user_path(@user)
     assert session[:forwarding_url].nil?, "forwarding url should be nil after successful forwarding."
+  end
+
+    test "should not allow editing of admin attribute via web" do
+    log_in_with(user_email: @user.email, password: FIXTURE_PASSWORD)
+    assert_not @user.admin?, "Test user cannot be admin!"
+
+    patch user_path(@user), params: {
+      user: {
+        password: FIXTURE_PASSWORD,
+        password_confirmation: FIXTURE_PASSWORD,
+        admin: true
+      }
+    }
+
+    admin_status_changed = @user.reload.admin?
+
+    assert_not admin_status_changed, "Admin role should not be allowed to edit via web but is changed."
   end
 end
