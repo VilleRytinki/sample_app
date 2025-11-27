@@ -32,13 +32,27 @@ in practically fraction of the time compared to other frameworks.
 
 # Features
 This section gets updated as the project matures.
-Single page application with pages:
-- home
-- help
-- about
-- contact
-- profile
-- users
+Non-logged in users:
+- Signup.
+- Login.
+- Home.
+- Contact.
+- About.
+- Help.
+
+Logged in non-admin users:
+- home.
+- help.
+- about.
+- contact.
+- profile.
+- users.
+- user settings.
+- logout.
+
+admin users:
+- all the functionality of logged in user.
+- delete user(s).
 
 Features:
 - Fully functional login and authentication system with users having the ability to login and logout of the app via user session control.
