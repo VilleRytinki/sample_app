@@ -32,13 +32,27 @@ in practically fraction of the time compared to other frameworks.
 
 # Features
 This section gets updated as the project matures.
-Single page application with pages:
-- home
-- help
-- about
-- contact
-- profile
-- users
+Non-logged in users:
+- Signup.
+- Login.
+- Home.
+- Contact.
+- About.
+- Help.
+
+Logged in non-admin users:
+- home.
+- help.
+- about.
+- contact.
+- profile.
+- users.
+- user settings.
+- logout.
+
+admin users:
+- all the functionality of logged in user.
+- delete user(s).
 
 Features:
 - Fully functional login and authentication system with users having the ability to login and logout of the app via user session control.
@@ -52,6 +66,7 @@ Features:
 - Admin role with security features implemented. Any logged in user can view other registered users but
     admins can see delete links. Admin role is not modifiable via web as demonstrated with controller tests.
 - Full REST architecture for users with CRUD functionalities.
+
 # Technologies used
 This project uses Rails, Postgresql, Javascript, HTML and CSS in order to build a full-blown database backed web-app.
 
