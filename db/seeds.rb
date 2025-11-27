@@ -8,6 +8,15 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
+# Generate admin user
+User.create!(
+  name: "AdminUser",
+  email: "adminuser@example.com",
+  password: "password",
+  password_confirmation: "password",
+  admin: true
+)
+
 # Generate 100 example users
 def create_new_user(n)
   name = Faker::Name.name
