@@ -2,7 +2,7 @@ require "test_helper"
 
 class UsersEditTest < ActionDispatch::IntegrationTest
   def setup
-    @user = users(:testuser1)
+    @user = users(:testuser2)
   end
 
   test "unsuccessful edit renders the edit page with error messages" do
@@ -54,7 +54,7 @@ class UsersEditTest < ActionDispatch::IntegrationTest
 
     test "should not allow editing of admin attribute via web" do
     log_in_with(user_email: @user.email, password: FIXTURE_PASSWORD)
-    assert_not @user.admin?
+    assert_not @user.admin?, "Test user cannot be admin!"
 
     patch user_path(@user), params: {
       user: {
