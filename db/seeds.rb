@@ -14,7 +14,9 @@ User.create!(
   email: "adminuser@example.com",
   password: "password",
   password_confirmation: "password",
-  admin: true
+  admin: true,
+  activated: true,
+  activated_at: Time.zone.now
 )
 
 # Generate 100 example users
@@ -26,7 +28,9 @@ def create_new_user(n)
     name: name,
     email: email,
     password: password,
-    password_confirmation: password
+    password_confirmation: password,
+    activated: true,
+    activated_at: Time.zone.now
   )
 end
 
