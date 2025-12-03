@@ -103,3 +103,16 @@ class RememberingTest < UsersLogin
     assert cookies[:remember_token].blank?
   end
 end
+
+class NonActiveUserLogin < ActionDispatch::IntegrationTest
+  test "should redirect to root with warning message when trying to log in without activation" do
+    user = users(:nonactiveuser)
+
+    log_in_with(user_email: user.email, password: ActiveSupport::TestCase::FIXTURE_PASSWORD)
+    assert_not is_logged_in?, "User should not be logged in but was."
+
+    assert_redirected_to root_url
+    follow_redirect!
+    assert_select "div.alert-warning", text: "Account not activated. Check you email for activation link."
+  end
+end
