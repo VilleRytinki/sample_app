@@ -66,6 +66,10 @@ Features:
 - Admin role with security features implemented. Any logged in user can view other registered users but
     admins can see delete links. Admin role is not modifiable via web as demonstrated with controller tests.
 - Full REST architecture for users with CRUD functionalities.
+- On signup users now receive an account activation email.
+- Nonactive users are not able to login and they are not visible in user index. Their profile is also not visible.
+- Production environment is configured to use Brevo for sending emails to users.
+
 # Technologies used
 This project uses Rails, Postgresql, Javascript, HTML and CSS in order to build a full-blown database backed web-app.
 
