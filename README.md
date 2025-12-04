@@ -69,7 +69,7 @@ Features:
 - On signup users now receive an account activation email. Account activation is implemented with virtual activation tokens and digests to create
     a unique url for activating user.
 - Nonactive users are not able to login and they are not visible in user index. Their profile is also not visible.
-- Production environment is configured to use Brevo for sending emails to users. !DISCLAIMER! This feature is unfortunately disabled in production as Render free-tier does not support SMTP.
+- Production environment is configured to use Brevo for sending emails to users. _!DISCLAIMER! This feature is unfortunately disabled in production as Render free-tier does not support SMTP._
 
 # Technologies used
 This project uses Rails, Postgresql, Javascript, HTML and CSS in order to build a full-blown database backed web-app.
