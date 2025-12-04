@@ -11,7 +11,8 @@ class UsersIndexTest < ActionDispatch::IntegrationTest
     get users_path
     assert_template "users/index"
     assert_select "ul.pagination", count: 2
-    User.page(1).each do |user|
+    active_listed_users = get_active_users_for_page(1)
+    active_listed_users.each do |user|
       assert_select "a[href=?]", user_path(user), text: user.name
       assert_select "a", text: "delete", count: 0
     end
@@ -20,7 +21,8 @@ class UsersIndexTest < ActionDispatch::IntegrationTest
   test "index with delete links for admin" do
     log_in_with(user_email: @admin_user.email, password: FIXTURE_PASSWORD)
     get users_path
-    User.page(1).each do |user|
+    active_listed_users = get_active_users_for_page(1)
+    active_listed_users.each do |user|
       assert_select "a[href=?]", user_path(user), text: "delete"
     end
   end
