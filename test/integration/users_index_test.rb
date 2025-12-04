@@ -24,4 +24,16 @@ class UsersIndexTest < ActionDispatch::IntegrationTest
       assert_select "a[href=?]", user_path(user), text: "delete"
     end
   end
+
+  test "should display only active users" do
+    log_in_with(user_email: @admin_user.email, password: FIXTURE_PASSWORD)
+    get users_path
+    first_available_user = User.page(1).first
+    first_available_user.toggle!(:activated)
+
+    assert_not first_available_user.activated?
+    assigns(:users).each do |user|
+      assert user.activated?, "Listed user:#{user.name} should be activated but was not."
+    end
+  end
 end

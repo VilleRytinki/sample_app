@@ -85,4 +85,18 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_response :see_other
     assert_redirected_to users_path
   end
+
+  test "should redirect user page to root when account not activated" do
+    user = users(:nonactiveuser)
+    log_in_with(user_email: user.email, password: FIXTURE_PASSWORD)
+    get user_path(user)
+    assert_redirected_to root_url
+  end
+
+  test "should display user page when activated" do
+    log_in_with(user_email: @user2.email, password: FIXTURE_PASSWORD)
+    get user_path(@user2)
+    assert_template "users/show"
+    assert_response :success
+  end
 end
