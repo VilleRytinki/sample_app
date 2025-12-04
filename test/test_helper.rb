@@ -20,6 +20,11 @@ module ActiveSupport
     def is_logged_in?
       !session[:user_id].nil?
     end
+
+    def get_active_users_for_page(page)
+      active_listed_users = User.page(page).select { |user| user.activated? }
+      active_listed_users
+    end
   end
 end
 
