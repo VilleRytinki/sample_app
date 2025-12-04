@@ -58,17 +58,24 @@ Rails.application.configure do
   # config.action_mailer.raise_delivery_errors = false
 
   # Set host to be used by links generated in mailer templates.
-  config.action_mailer.default_url_options = { host: "example.com" }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.default_url_options = {
+    host: "https://sample-app-z0aw.onrender.com",
+  protocol: "https"
+ }
 
   # Specify outgoing SMTP server. Remember to add smtp/* credentials via bin/rails credentials:edit.
-  # config.action_mailer.smtp_settings = {
-  #   user_name: Rails.application.credentials.dig(:smtp, :user_name),
-  #   password: Rails.application.credentials.dig(:smtp, :password),
-  #   address: "smtp.example.com",
-  #   port: 587,
-  #   authentication: :plain
-  # }
+  config.action_mailer.smtp_settings = {
+    address:              ENV.fetch("BREVO_SMTP_HOST"),      # smtp-relay.brevo.com
+    port:                 ENV.fetch("BREVO_SMTP_PORT"),      # 587
+    domain:               ENV.fetch("BREVO_DOMAIN"),
+    user_name:            ENV.fetch("BREVO_SMTP_USERNAME"),
+    password:             ENV.fetch("BREVO_SMTP_PASSWORD"),
+    authentication:       :login,
+    enable_starttls_auto: true
+   }
 
+  config.action_mailer.raise_delivery_errors = true
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
   config.i18n.fallbacks = true
