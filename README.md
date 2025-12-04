@@ -66,7 +66,8 @@ Features:
 - Admin role with security features implemented. Any logged in user can view other registered users but
     admins can see delete links. Admin role is not modifiable via web as demonstrated with controller tests.
 - Full REST architecture for users with CRUD functionalities.
-- On signup users now receive an account activation email.
+- On signup users now receive an account activation email. Account activation is implemented with virtual activation tokens and digests to create
+    a unique url for activating user.
 - Nonactive users are not able to login and they are not visible in user index. Their profile is also not visible.
 - Production environment is configured to use Brevo for sending emails to users.
 
