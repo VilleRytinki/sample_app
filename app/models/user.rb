@@ -29,6 +29,10 @@ class User < ApplicationRecord
     remember_digest
   end
 
+  def activate
+    update_attribute(:activated, true)
+    update_attribute(:activated_at, Time.zone.now)
+  end
   def authenticated?(attribute, token)
     digest = send("#{attribute}_digest")
     return false if digest.nil?
